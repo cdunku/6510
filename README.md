@@ -47,6 +47,11 @@ Program executed in 0 seconds
 ```
 
 
+## Debugging:
+
+For debugging please comment out the `cpu_debug()` function in order to output the values and mnemonics executed during testing.
+
+
 ## Resources:
 
 In order to access the resources used, please refer to the resources.txt file and the comments inside the source code.
