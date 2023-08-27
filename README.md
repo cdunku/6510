@@ -8,7 +8,7 @@
 
 - **User-friendly**; Compare the values and help people debug their own emulator. (Passes all tests in the test_file directory)
 
-- **Portable**; The emulator has been test on MacOS and Linux (Fedora 38) and runs without any issues.
+- **Portable**; The emulator has been tested on MacOS and Linux (Fedora 38) and runs without any issues.
 
 
 ## Output:
