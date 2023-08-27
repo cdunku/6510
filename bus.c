@@ -42,12 +42,11 @@ rb(MOS_6510* const c, uint16_t addr)
   {
     if((c->ram[0x0001] & LORAM) || (c->ram[0x0001] & HIRAM))
     {
-
-			/*
-			 * CHAREN is a signal thay either enables or disables the CHAR ROM.
-			 * When CHAREN is (logic) 1 it is not stored into RAM but rather the contents of the I/O section.
-			 * The RAM being the char_rom array.
-			 */
+      /*
+       * CHAREN is a signal thay either enables or disables the CHAR ROM.
+       * When CHAREN is (logic) 1 it is not stored into RAM but rather the contents of the I/O section.
+       * The RAM being the char_rom array.
+       */
 
       if(c->ram[0x0001] & CHAREN)
         {
