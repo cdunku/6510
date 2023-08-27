@@ -4,7 +4,7 @@
 
 ## Goals:
 
-- **Future project**;The main goal of this project is to develop a 6510 processor for a future project.
+- **Future project**; The main goal of this project is to develop a 6510 processor for a future project.
 
 - **User-friendly**; Compare the values and help people debug their own emulator.
 
