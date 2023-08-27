@@ -2,8 +2,6 @@
 #include "bus.h"
 #include "debug.h"
 
-/* R/W, Stack and I/O functions */
-
 #define LORAM 0x1 // (BIT 0, WEIGHT 1)
 #define HIRAM 0x2 // (BIT 1, WEIGHT 2)
 #define CHAREN 0x4 // (BIT 2, WEIGHT 4)
