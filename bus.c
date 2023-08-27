@@ -19,52 +19,6 @@
 uint8_t 
 rb(MOS_6510* const c, uint16_t addr)
 {
-  if(addr >= 0xA000 && addr <= 0xBFFF)
-  {
-    if((c->ram[0x0001] & HIRAM) && (c->ram[0x0001] & LORAM))
-    {
-      return c->basic_rom[addr & 0x1FFF];
-    }
-  }
-
-	/*
-	 * NOTE: Why did I include this very specific IF statement?
-	 *
-	 * The reason is that CHAR_ROM and the I/O needs to be accessible at all times regardless of the values of LORAM and HIRAM,
-	 * The memory locations for LORAM are (0x8000 - 0x9FFF) where input/output operations take place. 
-	 * Specifically the registers of various hardware components, such as the VIC-II graphics chip and the SID sound chip, are located here.
-	 *
-	 * Whilst HIRAM also holds a similar purpose, with the locations being (0xD000 - 0xDFFF) having the same purpose as well.
-	 *
-	 */
-
-  if(addr >= 0xD000 && addr <= 0xDFFF)
-  {
-    if((c->ram[0x0001] & LORAM) || (c->ram[0x0001] & HIRAM))
-    {
-      /*
-       * CHAREN is a signal thay either enables or disables the CHAR ROM.
-       * When CHAREN is (logic) 1 it is not stored into RAM but rather the contents of the I/O section.
-       * The RAM being the char_rom array.
-       */
-
-      if(c->ram[0x0001] & CHAREN)
-        {
-          // Returns IO_READ
-        }
-      else 
-      {
-        return c->char_rom[addr & 0xFFF];
-			}
-    }
-	}
-  if(addr >= 0xE000 && addr <= 0xFFFF)
-  {
-    if(c->ram[0x0001] & HIRAM)
-    {
-      return c->kernal_rom[addr & 0x1FFF];
-    }
-  }
   return c->ram[addr & 0xFFFF];
 }
 
@@ -77,13 +31,6 @@ rw(MOS_6510* const c, uint16_t addr)
 void 
 wb(MOS_6510* const c, uint16_t addr, uint8_t value)
 {
-  if(addr >= 0xD000 && addr <= 0xDFFF)
-  {
-    if((c->ram[0x0001] & HIRAM || c->ram[0x0002] & LORAM) && (c->ram[0x0001] & CHAREN))
-    {
-      // IO_WRITE        
-    }
-  }
   c->ram[addr & 0xFFFF] = value;
 }
 

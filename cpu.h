@@ -38,9 +38,6 @@ typedef struct MOS_6510
   uint64_t cyc;
   bool page_crossed;
 
-  uint8_t basic_rom[8192]; // 8KB
-  uint8_t char_rom[4096]; // 4KB
-  uint8_t kernal_rom[8192]; // 8KB
   uint8_t ram[65536]; // 64KB
 
   uint16_t addr_ptr; // For normal addressing modes
