@@ -6,7 +6,7 @@
 
 - **Future project**; The main goal of this project is to develop a 6510 processor for a future project.
 
-- **User-friendly**; Compare the values and help people debug their own emulator.
+- **User-friendly**; Compare the values and help people debug their own emulator. (Passes all tests in the test_file directory)
 
 - **Portable**; The emulator has been test on MacOS and Linux (Fedora 38) and runs without any issues.
 
@@ -50,6 +50,10 @@ Program executed in 0 seconds
 ## Debugging:
 
 For debugging please comment out the `cpu_debug()` function in order to output the values and mnemonics executed during testing.
+
+- Illegal/Undocumented opcodes haven't been tested, but the legal/documented ones are mostly accurate.
+
+- TomHarte tests haven't been used during testing.
 
 
 ## Resources:
